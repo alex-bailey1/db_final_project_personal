@@ -1,0 +1,20 @@
+player,Tom Brady
+year,2000
+table_type,passing
+Date,Team,Opp,Att,Cmp,Pct,Yds,YPA,TD,TD%T%,Int,Int%I%,Lg,Sack,Loss,Rate,Res
+11/23/00,NE,@ DET,3,1,33.3,6,2.0,0,0.0,0,0.0,6,0,0,42.4
+table_type,rushing
+Date,Team,Opp,Att,Yds,Avg,Lg,TD,FD,Res
+11/23/00,NE,@ DET,0,0,0.00,0,0,0
+table_type,punting
+Date,Team,Opp,Num,Yds,Avg,Lg,TB,In20,OB,FC,Dwn,Blk,Net,Ret,RYds,TD,Res
+11/23/00,NE,@ DET,0,0,0.0,0,0,0,--,--,--,0,0.0,0,0,--
+table_type,receiving
+Date,Team,Opp,Rec,Yds,Avg,Lg,TD,FD,Tar,YAC,Res
+11/23/00,NE,@ DET,0,0,0.00,0,0,0,--,--
+table_type,scoreing
+Date,Team,Opp,Tot,R,P,KR,PR,IR,FR,PAT,FG,Conv,Saf,Pts,Res
+11/23/00,NE,@ DET,0,0,0,0,0,0,0,0/0,0/0,0,0,0
+table_type,defense
+Date,Team,Opp,Int,Yds,Avg,Lg,TD,Solo,Ast,Tot,Sack,YdsL,Res
+11/23/00,NE,@ DET,0,0,0.00,0,0,0,0,0,0.0,0.0
