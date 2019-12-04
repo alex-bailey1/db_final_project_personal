@@ -2,8 +2,9 @@ from get_roster import get_roster
 import csv
  
 #not all the websites abreviations are correct, this changes the real abbreviation to the websites version {actual_abrev: website_abrv}
-team_abrev_translation = {'ari': 'arz', 'atl': 'atl', 'bal': 'bal', 'buf': 'buf', 'car': 'car', 'chi': 'chi', 'cin': 'cin', 'cle': 'cle', 'dal': 'dal', 'den': 'den', 'det': 'det', 'gb': 'gb', 'hou': 'hou', 'ind': 'ind', 'jax': 'jac', 'kc': 'kc', 'mia': 'mia', 'min': 'min', 'ne': 'ne', 'no': 'no', 'nyg': 'nyg', 'nyj': 'nyj', 'oak': 'oak', 'phi': 'phi', 'pit': 'pit', 'sd': 'sd', 'sf': 'sf', 'sea': 'sea', 'stl': 'stl', 'tb': 'tb', 'ten': 'ten', 'was': 'was'}
+team_abrev_translation = {'ari': 'arz', 'atl': 'atl', 'bal': 'bal', 'buf': 'buf', 'car': 'car', 'chi': 'chi', 'cin': 'cin', 'cle': 'cle', 'dal': 'dal', 'den': 'den', 'det': 'det', 'gb': 'gb', 'hou': 'hou', 'ind': 'ind', 'jax': 'jac', 'kc': 'kc', 'mia': 'mia', 'min': 'min', 'ne': 'ne', 'no': 'no', 'nyg': 'nyg', 'nyj': 'nyj', 'oak': 'oak', 'phi': 'phi', 'pit': 'pit', 'sf': 'sf', 'sea': 'sea', 'tb': 'tb', 'ten': 'ten', 'was': 'was'}
 
+#for reference
 headers = ['pos', '#', '', 'player', 'gp', 'gs', 'start pos', 'exp', 'dob', 'ht', 'wt', 'college']
 
 entire_list = {}
@@ -14,11 +15,13 @@ star_year = 2018
 num_years = 1
 
 # for team in team_abrev_list:
-for team in ['ari', 'atl']:
+# for team in ['ari', 'atl']:
+for team, translation in team_abrev_translation.items():
 	#for console tracking
 	print(team)
 	
-	roster = get_roster(star_year, num_years, team_abrev_translation[team])
+	# roster = get_roster(star_year, num_years, team_abrev_translation[team])
+	roster = get_roster(star_year, num_years, translation)
 	#for tracking of program	
 	
 	#remove these as they aren't needed for all players
@@ -45,7 +48,7 @@ for team in ['ari', 'atl']:
 				entire_list.update( {player_name: [player_dob, id_num]} )
 				id_num += 1
 
-with open("all_players.csv", "w") as writeFile:
+with open("all_players.csv", "w", newline='') as writeFile:
 	writer = csv.writer(writeFile)
 	
 	for player_name, player_dob_id in entire_list.items():

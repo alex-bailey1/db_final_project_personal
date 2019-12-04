@@ -1,0 +1,23 @@
+{
+    "2018": {
+        "defense": {
+            "headers": [
+                "Date",
+                "Team",
+                "Opp",
+                "Int",
+                "Yds",
+                "Avg",
+                "Lg",
+                "TD",
+                "Solo",
+                "Ast",
+                "Tot",
+                "Sack",
+                "YdsL",
+                "Res"
+            ],
+            "data": []
+        }
+    }
+}
