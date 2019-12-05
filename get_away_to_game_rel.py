@@ -10,7 +10,7 @@ def get_home_to_game_rel():
         
 		
         for row in csv_reader:
-            rel_list.append([row[0], row[0], row[1], row[2], row[2]])
+            rel_list.append([row[0], row[0], row[1], row[2], row[2], row[3]])
 
     readFile.close()
 
@@ -32,7 +32,7 @@ def get_away_to_game_rel():
         
 		
         for row in csv_reader:
-            rel_list.append([row[0], row[0], row[1], row[3], row[3]])
+            rel_list.append([row[0], row[0], row[1], row[3], row[3], row[2]])
 
     readFile.close()
 
