@@ -5,6 +5,7 @@ import time
 from get_table import parse_table
 
 
+
 #gets roster of the given team
 
 #this roster
@@ -62,7 +63,7 @@ def get_player_id_list():
 
 	entire_list = {}
 	
-	with open("all_players.csv", "r") as readFile:
+	with open("table_players.csv", "r") as readFile:
 		csv_reader = csv.reader(readFile, delimiter=",")
 		
 		for row in csv_reader:
@@ -173,8 +174,9 @@ def player_stats_handler(player_list, start_year, num_years):
 	player_number_url_exceptions = [["mason", "cole"]]
 	
 	for player in player_list:
+		print(player_list[player])
 		for i_year in range(0, num_years):
-		
+			
 			p_name_split = player.split()
 			current_year = start_year + i_year
 			
@@ -205,12 +207,52 @@ def player_stats_handler(player_list, start_year, num_years):
 				#only missing the year
 				full_url = base_url + first + "-" + last + "-" + name_combo + "/gamelogs/" + str(current_year)
 				
-				main_list.update({current_year: get_player_stats(full_url) })
-		time.sleep(.5)
+				main_list.update({player: [current_year, get_player_stats(full_url)] })
+		time.sleep(.1)
 				
 				
 				
 	return main_list
+
+#if opponent contains 'vs', home
+#if opponent contains '@', away
+#return array[home_team, away_team]
+def get_home_away(team, opponent):
+	opponent_split = opponent.split()
+	if(opponent_split[0] == "vs"):
+		return [team, opponent_split[1]]
+	elif(opponent_split[0] == "@"):
+		return [opponent_split[1], team]
+	else:
+		print("get_home_away ERROR")
+		return None
+
+#returns [home_score, away_score]
+def split_score(score_str):
+	
+	
+	score_str_split = score_str.split(", ")
+
+	score_letter = score_str_split[0]
+	
+	score_nums = score_str_split[1].split("-")
+	
+
+	score_first = score_nums[0]
+	score_second = score_nums[1]
+
+
+	if(score_letter == "W"):
+		return [score_first, score_second]
+	elif(score_letter == "L"):
+		return [score_second, score_first]
+	elif(score_letter == "T"):
+		#tie game, so it doesn't matter
+		return [score_second, score_first]
+	else:
+		print("ERROR split_score")
+		return None
+
 
 
 # #not all the websites abreviations are correct, this changes the real abbreviation to the websites version {actual_abrev: website_abrv}
@@ -261,9 +303,10 @@ def get_only_one_pos(pos_string):
 	return string_arr[0]
 
 
-	
-	
-	
+#take the temp_game_translation.csv and game_weather.csv
+#and make a csv that has [date, year, week]
+def connect_date_to_season():
+	print("hello")
 	
 	
 	
